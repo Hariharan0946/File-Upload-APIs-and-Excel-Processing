@@ -1,3 +1,4 @@
+
 # 🚀 Backend File Upload & Excel Processing API
 
 A **production-ready backend system** built using **Django** that allows users to upload Excel files, process records safely, store them in a database, and retrieve them using paginated REST APIs.
@@ -9,30 +10,30 @@ This project demonstrates **clean architecture**, **data validation**, **file ha
 ## 🛠️ Tech Stack
 
 <p align="left">
-  <img src="https://img.shields.io/badge/Python-3.13-blue?logo=python&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Django-5.x-green?logo=django&logoColor=white"/>
-  <img src="https://img.shields.io/badge/PostgreSQL-Database-blue?logo=postgresql&logoColor=white"/>
-  <img src="https://img.shields.io/badge/REST-API-orange"/>
-  <img src="https://img.shields.io/badge/Postman-Testing-orange?logo=postman"/>
+  <img src="https://img.shields.io/badge/Python-3.13-blue?logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Django-5.x-green?logo=django&logoColor=white"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-Database-blue?logo=postgresql&logoColor=white"/>
+  <img src="https://img.shields.io/badge/REST-API-orange"/>
+  <img src="https://img.shields.io/badge/Postman-Testing-orange?logo=postman"/>
 </p>
 
 ---
 
 ## 📦 Features
 
-✅ Upload Excel files (`.xls`, `.xlsx`, `.csv`)  
-✅ File validation (size, format)  
-✅ Safe Excel parsing  
-✅ Duplicate record prevention  
-✅ Database persistence  
-✅ Pagination support  
-✅ Clean REST APIs  
-✅ Production-style folder structure  
+✅ Upload Excel files (`.xls`, `.xlsx`, `.csv`)  
+✅ File validation (size, format)  
+✅ Safe Excel parsing  
+✅ Duplicate record prevention  
+✅ Database persistence  
+✅ Pagination support  
+✅ Clean REST APIs  
+✅ Production-style folder structure  
 
 ---
 
 ## 📂 Project Structure
-
+```
 backend_assignment/
 │
 ├── backend/
@@ -51,84 +52,96 @@ backend_assignment/
 ├── manage.py
 ├── requirements.txt
 └── README.md
-
-yaml
-Copy code
+```
 
 ---
 
 ## ⚙️ Setup Instructions (Run Locally)
 
 ### 1️⃣ Clone the repository
-```bash
+
+```
 git clone <repo-url>
 cd backend_assignment
+```
+
 2️⃣ Create & activate virtual environment
-bash
-Copy code
+
+```
 python -m venv venv
-venv\Scripts\activate   # Windows
+venv\Scripts\activate   # Windows
+```
+
 3️⃣ Install dependencies
-bash
-Copy code
+```
 pip install -r requirements.txt
+```
 4️⃣ Run migrations
-bash
-Copy code
+```
 python manage.py makemigrations
 python manage.py migrate
+```
+
 5️⃣ Start the server
-bash
-Copy code
+```
 python manage.py runserver
+```
+
 📍 Server runs at:
 
-cpp
-Copy code
 http://127.0.0.1:8000/
+
+
+
+---
+
 🔌 API Endpoints
-🔹 1. Upload Excel File
-bash
-Copy code
-POST /api/v1/files/upload
-Postman Settings
 
-Body → form-data
+1️⃣ Upload Excel File
+Endpoint: POST /api/v1/files/upload
 
-Key: file (type: File)
+Body: form-data | Key: file (File)
 
-Response
+Response:
 
-json
-Copy code
+JSON
+
 {
   "file_path": "uploads/uuid_filename.xlsx"
 }
-🔹 2. Process Uploaded Excel
-bash
-Copy code
-POST /api/v1/process-excel
-Body (x-www-form-urlencoded)
 
-json
-Copy code
-file_path=uploads/uuid_filename.xlsx
-Response
 
-json
-Copy code
+
+<img width="1555" height="979" alt="image" src="https://github.com/user-attachments/assets/0f81302b-35e2-4a5a-a53f-4430dc3a46ec" />
+
+
+2️⃣ Process Uploaded Excel
+Endpoint: POST /api/v1/process-excel
+
+Body: x-www-form-urlencoded | Key: file_path
+
+Response:
+
+JSON
+
 {
   "inserted": 2,
   "skipped": 1
 }
-🔹 3. Get Records (Pagination)
-bash
-Copy code
-GET /api/v1/getAll?page=1&limit=10
-Response
 
-json
-Copy code
+
+
+<img width="1553" height="977" alt="image" src="https://github.com/user-attachments/assets/616ff640-0e40-428f-88ea-badfbc05ea55" />
+
+
+
+3️⃣ Get Records (With Pagination)
+Endpoint: GET /api/v1/getAll?page=1&limit=10
+
+Response:
+
+JSON
+
 {
   "page": 1,
   "limit": 10,
@@ -143,6 +156,12 @@ Copy code
     }
   ]
 }
+
+
+<img width="1555" height="979" alt="image" src="https://github.com/user-attachments/assets/013c5275-2729-47f9-879c-1548f55efdaa" />
+
+
+---
 🧠 Design Decisions
 🧩 Service Layer Pattern
 Business logic moved to utils.py to keep views clean.
