@@ -18,17 +18,32 @@ This project demonstrates **clean architecture**, **data validation**, **file ha
 </p>
 
 ---
+## 🔗 Project Purpose
 
-## 📦 Features
+The goal of this project is to:
 
-✅ Upload Excel files (`.xls`, `.xlsx`, `.csv`)  
-✅ File validation (size, format)  
-✅ Safe Excel parsing  
-✅ Duplicate record prevention  
-✅ Database persistence  
-✅ Pagination support  
-✅ Clean REST APIs  
-✅ Production-style folder structure  
+- Handle **file uploads securely**
+- Parse and validate **Excel / CSV data**
+- Prevent **duplicate records**
+- Store structured data in a database
+- Expose **clean REST APIs**
+- Support **pagination for scalability**
+
+This is a **backend-only system** and can be easily integrated with any frontend or mobile application.
+
+---
+
+## 📦 Key Features
+
+✅ Upload Excel (`.xls`, `.xlsx`) and CSV (`.csv`) files  
+✅ File type & size validation  
+✅ Safe Excel parsing  
+✅ Duplicate record prevention  
+✅ Database persistence  
+✅ Pagination support for large datasets  
+✅ Clean API structure  
+✅ Production-style folder organization  
+
 
 ---
 
@@ -95,10 +110,10 @@ http://127.0.0.1:8000/
 
 ---
 
-🔌 API Endpoints
+## 🔌 API Endpoints
 
-1️⃣ Upload Excel File
-Endpoint: POST /api/v1/files/upload
+### 1️⃣ Upload Excel File
+#### Endpoint: POST /api/v1/files/upload
 
 Body: form-data | Key: file (File)
 
@@ -115,8 +130,8 @@ JSON
 <img width="1555" height="979" alt="image" src="https://github.com/user-attachments/assets/0f81302b-35e2-4a5a-a53f-4430dc3a46ec" />
 
 
-2️⃣ Process Uploaded Excel
-Endpoint: POST /api/v1/process-excel
+### 2️⃣ Process Uploaded Excel
+#### Endpoint: POST /api/v1/process-excel
 
 Body: x-www-form-urlencoded | Key: file_path
 
@@ -135,8 +150,8 @@ JSON
 
 
 
-3️⃣ Get Records (With Pagination)
-Endpoint: GET /api/v1/getAll?page=1&limit=10
+### 3️⃣ Get Records (With Pagination)
+#### Endpoint: GET /api/v1/getAll?page=1&limit=10
 
 Response:
 
@@ -162,25 +177,48 @@ JSON
 
 
 ---
-🧠 Design Decisions
-🧩 Service Layer Pattern
-Business logic moved to utils.py to keep views clean.
+## 🧠 Design Decisions & Architecture
+### 🔹 Service Layer Pattern
 
-📈 Pagination for scalability
-Efficient handling of large datasets.
+- Business logic moved to utils.py
 
-🔒 Strict validation
-File type, size, duplicates, and data integrity ensured.
+- Views remain thin and readable
 
-🧼 Clean REST architecture
-Easy to extend, test, and maintain.
+- Easy to extend and test
 
-🧪 Testing
-✔ All APIs tested using Postman
-✔ Handles invalid files gracefully
-✔ Verified local execution without errors
+### 🔹 Pagination for Scalability
 
-👨‍💻 Author
-Hariharan Balasubramaniyam
-Backend Developer | Python | Django | PostgreSQL
+- Prevents memory overload
+
+- Handles large datasets efficiently
+
+- Production-friendly API design
+
+### 🔹 Strict Validation
+
+- File type validation
+
+- File size validation
+
+- Duplicate prevention
+
+- Data integrity checks
+
+### 🔹 Local File Storage
+
+- Files stored locally as required
+
+- Can be upgraded to S3 / Cloud storage easily
+
+## 🧪 Testing
+
+- All APIs tested using Postman
+- Invalid file formats handled gracefully
+- Duplicate records prevented
+- Pagination verified
+- Error responses validated
+
+## 👨‍💻 Author
+### Hariharan Balasubramaniyam
+
 
