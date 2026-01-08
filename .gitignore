@@ -1,23 +1,23 @@
-# =========================
+
 # Python
-# =========================
+
 __pycache__
 .py[cod]
 .pyo
 .pyd
 .Python
 
-# =========================
+
 # Virtual Environment
-# =========================
+
 venv
 env
 ENV
 .venv
 
-# =========================
+
 # Django
-# =========================
+
 .log
 logs
 local_settings.py
@@ -25,29 +25,29 @@ db.sqlite3
 media
 staticfiles
 
-# =========================
+
 # Uploaded Files (important for your assignment)
-# =========================
+
 uploads
 
-# =========================
+
 # Migrations (keep __init__.py)
-# =========================
+
 migrations.py
 !migrations__init__.py
 
-# =========================
+
 # VS Code
-# =========================
+
 .vscode
 
-# =========================
+
 # OS files
-# =========================
+
 .DS_Store
 Thumbs.db
 
-# =========================
+
 # Environment variables
-# =========================
+
 .env
